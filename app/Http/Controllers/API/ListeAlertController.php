@@ -16,9 +16,9 @@ class ListeAlertController extends Controller
         $alerts = Alert::where('isDelete', 0)->where('valide', 1)->where('statut', 0)->where('ville_id', $ville_id)->get();
         if($alerts)
         {
-            return ['success' => true, 'response' => $alerts];
+            return response()->json(['success' => true, 'response' => $alerts]);
         }else{
-            return json_encode(['success' => false, 'message' => 'Pas d\'alerte']);
+            return response()->json(['success' => false, 'message' => 'Pas d\'alerte']);
 
         }
     }
@@ -28,9 +28,9 @@ class ListeAlertController extends Controller
         $alerts = Alert::where('isDelete', 0)->where('valide', 1)->where('statut', 1)->where('close', 0)->where('agent_id', $user_id)->get();
         if($alerts)
         {
-            return json_encode(['success' => true, 'response' => $alerts]);
+            return response()->json(['success' => true, 'response' => $alerts]);
         }else{
-            return json_encode(['success' => false, 'message' => 'Pas d\'alerte Accepted']);
+            return response()->json(['success' => false, 'message' => 'Pas d\'alerte Accepted']);
 
         }
     }
@@ -40,9 +40,9 @@ class ListeAlertController extends Controller
         $alerts = Alert::where('isDelete', 0)->where('valide', 1)->where('statut', 1)->where('close', 1)->where('agent_id', $user_id)->get();
         if($alerts)
         {
-            return json_encode(['success' => true, 'response' => $alerts]);
+            return response()->json(['success' => true, 'response' => $alerts]);
         }else{
-            return json_encode(['success' => false, 'message' => 'Pas d\'alerte collectée']);
+            return response()->json(['success' => false, 'message' => 'Pas d\'alerte collectée']);
 
         }
     }
@@ -57,7 +57,7 @@ class ListeAlertController extends Controller
         $user = User::find($user_id);
         $user->total_waste = 10 * $poids;
         $user->save();
-        return json_encode(['success' => true, 'message' => 'Terminée']);
+        return response()->json(['success' => true, 'message' => 'Terminée']);
 
     }
 
@@ -67,13 +67,13 @@ class ListeAlertController extends Controller
 
         if($alert->statut)
         {
-            return json_encode(['success' => false, 'message' => 'Cette demande a été déjà accepté']);
+            return response()->json(['success' => false, 'message' => 'Cette demande a été déjà accepté']);
         }
         else{
             $alert->statut=1;
             $alert->agent_id = $agent_id;
             $alert->save();
-            return json_encode(['success' => true, 'message' => 'Alerte accepté"']);
+            return response()->json(['success' => true, 'message' => 'Alerte accepté"']);
         }
     }
 }
