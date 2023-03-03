@@ -30,4 +30,4 @@ Route::get('/alerts-agent-standby/{id}', [ListeAlertController::class,'alertsAge
 Route::get('/alerts-agent-accepted/{id}', [ListeAlertController::class,'alertsAgentAccepted']);
 Route::get('/alerts-agent-close/{id}', [ListeAlertController::class,'alertsAgentClose']);
 Route::get('/alerts/{id}/poids/{poids}', [ListeAlertController::class,'closeAlerts']);
-Route::get('/argents/{id}/alerts/{id}', [ListeAlertController::class,'change_statut']);
+Route::get('/agents/{agent_id}/alerts/{alert_id}', [ListeAlertController::class,'change_statut']);
