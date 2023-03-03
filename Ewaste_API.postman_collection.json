@@ -1,0 +1,157 @@
+{
+	"info": {
+		"_postman_id": "36e2164d-0dfb-4c0f-992b-40aa376710c0",
+		"name": "Ewaste_API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17010973"
+	},
+	"item": [
+		{
+			"name": "Connexion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\" : \"fiflokononagent@gmail.com\",\n    \"password\" : \"password\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Alertes_Agent_en_attente_avec_ville_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/alerts-agent-standby/47",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"alerts-agent-standby",
+						"47"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accepter_une_alerte_avec_son_id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/agents/5/alerts/21",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"agents",
+						"5",
+						"alerts",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listes_des_alertes_acceptées",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/alerts-agent-accepted/5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"alerts-agent-accepted",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Terminer_une_alerte",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/alerts/21/poids/10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"alerts",
+						"21",
+						"poids",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Liste des alertes terminées avec id_agent",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/alerts-agent-close/5",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"alerts-agent-close",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://ewaste.herokuapp.com/api",
+			"type": "string"
+		}
+	]
+}
