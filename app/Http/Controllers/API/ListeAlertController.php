@@ -65,12 +65,12 @@ class ListeAlertController extends Controller
     public function change_statut($agent_id, $alert_id){
         $alert = Alert::find($alert_id);
 
-        if($alert->statut)
+        if($alert->statut == "1")
         {
             return response()->json(['success' => false, 'message' => 'Cette demande a été déjà accepté']);
         }
         else{
-            $alert->statut=1;
+            $alert->statut= 1;
             $alert->agent_id = $agent_id;
             $alert->save();
             return response()->json(['success' => true, 'message' => 'Alerte accepté"']);
