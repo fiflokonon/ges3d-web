@@ -10,24 +10,6 @@ use Illuminate\Support\Facades\DB;
 class ListeAlertController extends Controller
 
 {
-    public function liste(){
-        $alerts=DB::select("Select * From alerts
-        WHERE statut=0");
-        return $alerts;
-    }
-
-    public function valider($id){
-        $valider=Alert::Find($id);
-        $valider->valide=1;
-        $resultat=$valider->save();
-
-        $alerts=DB::select("Select * From alerts
-        WHERE statut=0");
-
-        return $alerts;
-    }
-
-
     public function attribuer(){
         $alerts=DB::select("Select id,ville_id From alerts
         WHERE valide=1
@@ -45,15 +27,21 @@ class ListeAlertController extends Controller
         }
     }
 
+    public function alertsAgentStandBy($ville_id){
+        $alerts = Alert::where()
+    }
 
-    public function statut($id){
-        $statut=Alert::Find($id);
-        $statut->statut=1;
-        $resultat=$statut->save();
 
-        $alerts=DB::select("Select * From alerts
-        WHERE statut=0");
-
-        return $alerts;
+    public function change_statut($id,$alert){
+        $alert=Alert::Find($id);
+        if($alert->statut)
+        {
+            return $message="Cette demande a été déjà accepté";
+        }
+        else{
+            $alert->statut=1;
+            $resultat=$alert->save();
+            return $message="Alert accepté";
+        }
     }
 }
