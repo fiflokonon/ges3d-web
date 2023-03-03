@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('latitude');
             $table->mediumText('message');
             $table->string('statut')->default(0);
+            $table->string('close')->default(0);
+            $table->string('poids')->nullable();
             $table->string('Valide')->default(0);
             $table->foreignId('agent_id')->nullable()->constrained('users')->onUpdate('cascade')->onDelete('cascade');
             $table->string('isDelete')->default(0);

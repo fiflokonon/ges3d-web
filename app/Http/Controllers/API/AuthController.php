@@ -27,7 +27,7 @@ class AuthController extends Controller
             $data = Auth::user();
             // $token = $data->createToken('user');
             $token = $data->createToken('user')->plainTextToken;
-            return response()->json(['token' => $token]);
+            return response()->json(['success' => true, 'response' =>['token' => $token, 'user' => $data]]);
         }
     }
 
