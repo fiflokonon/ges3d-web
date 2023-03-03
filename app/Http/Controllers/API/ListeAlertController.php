@@ -16,7 +16,7 @@ class ListeAlertController extends Controller
         $alerts = Alert::where('isDelete', 0)->where('valide', 1)->where('statut', 0)->where('ville_id', $ville_id)->get();
         if($alerts)
         {
-            return json_encode(['success' => true, 'response' => $alerts]);
+            return ['success' => true, 'response' => $alerts];
         }else{
             return json_encode(['success' => false, 'message' => 'Pas d\'alerte']);
 
