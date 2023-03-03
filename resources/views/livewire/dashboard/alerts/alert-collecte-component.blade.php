@@ -6,14 +6,14 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6 col-sm-6">
                         <div class="page-title">
-                            <h3>Listes des Alerts Validées</h3>
+                            <h3>Listes des Alerts collectées</h3>
                         </div>
                     </div>
 
                     <div class="col-lg-6 col-sm-6">
                         <ul class="page-title-list">
                             <li>Dashboard</li>
-                            <li>Alerts Validées</li>
+                            <li>Alerts collectées</li>
                         </ul>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
             <div class="container-fluid">
                 <div class="table-responsive" data-simplebar>
                     <div class="others-title">
-                        <h3>Listes des Alerts Validées</h3>
+                        <h3>Listes des Alerts collectées</h3>
                     </div>
 
                     <table class="table align-middle mb-0">
@@ -66,7 +66,7 @@
                                     pas d'agent assigné
                                     @endif
                                 </td>
-                                {{-- <td>
+                                <td>
                                     <div class="dropdown">
                                         <a class="btn btn-primary dropdown-toggle text-white" href="" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Actions
@@ -80,7 +80,7 @@
                                         </ul>
                                     </div>
 
-                                </td> --}}
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>
