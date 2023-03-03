@@ -21,8 +21,13 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Authenticate
 Route::post('/login',[AuthController::class,'login']);
-Route::get('/alerts', [ListeAlertController::class,'liste']);
-Route::get('/admin_satatut/{id}', [ListeAlertController::class,'valider']);
-Route::get('/admin_attribuer', [ListeAlertController::class,'attribuer']);
-Route::get('/argent_statut/{id}', [ListeAlertController::class,'statut']);
+
+
+
+Route::get('/alerts-agent-standby/{id}', [ListeAlertController::class,'alertsAgentStandBy']);
+Route::get('/alerts-agent-accepted/{id}', [ListeAlertController::class,'alertsAgentAccepted']);
+Route::get('/alerts-agent-close/{id}', [ListeAlertController::class,'alertsAgentClose']);
+Route::get('/alerts/{id}/poids/{poids}', [ListeAlertController::class,'closeAlerts']);
+Route::get('/agents/{agent_id}/alerts/{alert_id}', [ListeAlertController::class,'change_statut']);
