@@ -23,4 +23,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/login',[AuthController::class,'login']);
 Route::get('/alerts', [ListeAlertController::class,'liste']);
-Route::get('/statut/{id}', [ListeAlertController::class,'valider']);
+Route::get('/admin_satatut/{id}', [ListeAlertController::class,'valider']);
+Route::get('/admin_attribuer', [ListeAlertController::class,'attribuer']);
+Route::get('/argent_statut/{id}', [ListeAlertController::class,'statut']);
