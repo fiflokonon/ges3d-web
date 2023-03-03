@@ -32,7 +32,7 @@ class ListeAlertController extends Controller
         $alerts=DB::select("Select id,ville_id From alerts
         WHERE valide=1
         AND statut=0
-        AND isDelete=0 Limit 1");
+        AND isDelete=0");
         $id_ville=$alerts[0]->ville_id;
         $id=$alerts[0]->id;
 
