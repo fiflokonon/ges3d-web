@@ -74,7 +74,7 @@ class ListeAlertComponent extends Component
 
     public function render()
     {
-        $alerts = Alert::where('isDelete', 0)->where('valide', 0)->orderBy('created_at','DESC')->paginate(5);
+        $alerts = Alert::where('isDelete', 0)->where('Valide', 0)->orderBy('created_at','DESC')->paginate(5);
         $agents = User::where('isDelete', 0)->orderBy('created_at','DESC')->get();
 
         return view('livewire.dashboard.alerts.liste-alert-component',[

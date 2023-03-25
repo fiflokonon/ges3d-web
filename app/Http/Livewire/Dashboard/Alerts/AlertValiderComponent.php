@@ -12,7 +12,7 @@ class AlertValiderComponent extends Component
     protected $paginationTheme = 'bootstrap';
     public function render()
     {
-        $alerts = Alert::where('isDelete', 0)->where('valide', 1)->orderBy('created_at','DESC')->paginate(5);
+        $alerts = Alert::where('isDelete', 0)->where('Valide', 1)->orderBy('created_at','DESC')->paginate(5);
 
         return view('livewire.dashboard.alerts.alert-valider-component',[
             'alerts' => $alerts,
