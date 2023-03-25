@@ -38,6 +38,10 @@ class AlertComponent extends Component
 
     public function saveAlert()
     {
+        if(!Auth::check())
+        {
+            return redirect()->route('login');
+        }
         $this->validate([
             'path' =>  'required',
             'ville_id' =>  'required',
@@ -90,28 +94,10 @@ class AlertComponent extends Component
         }
     }
 
-    public function sendFirebaseNotification($topic, $title, $body) {
-        // Initialiser Firebase Messaging avec la clé privée
-        $serviceAccount = ServiceAccount::fromJsonFile($serviceAccount = ServiceAccount::fromJsonFile(storage_path('hackathon-e6f1f-firebase-adminsdk-kni0l-daf48d7f11.json')));
-        $firebase = (new Factory)->withServiceAccount($serviceAccount)->create();
-        // Créer l'objet de notification
-        $notification = Notification::create($title, $body);
 
-        // Créer l'objet de message multicast pour envoyer des notifications à tous les périphériques inscrits au topic
-        $multicastMessage = MulticastMessage::fromArray([
-            'topic' => $topic,
-            'notification' => $notification,
-        ]);
-        // Envoyer le message multicast
-        $firebase->getMessaging()->sendMulticast($multicastMessage);
-    }
 
     public function render()
     {
-        if(!Auth::check())
-        {
-            return redirect()->route('login');
-        }
         $villes = Ville::where('isDelete', 0)->orderBy('created_at','DESC')->get();
 
         return view('livewire.site.alert-component',[

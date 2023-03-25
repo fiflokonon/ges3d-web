@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "36e2164d-0dfb-4c0f-992b-40aa376710c0",
+		"_postman_id": "46501433-659b-4062-a1de-78a365dc7a4e",
 		"name": "Ewaste_API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "17010973"
@@ -150,7 +150,7 @@
 	"variable": [
 		{
 			"key": "base_url",
-			"value": "https://ewaste.herokuapp.com/api",
+			"value": "http://stagebenin.lapieuvretechnologique.info/api",
 			"type": "string"
 		}
 	]
